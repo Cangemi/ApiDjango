@@ -16,7 +16,6 @@ Including another URLconf
 """
 
 from django.urls import path
-from django.views.generic import RedirectView
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from careers.views import CareersView, CareerDetailView
@@ -24,8 +23,6 @@ from careers.views import CareersView, CareerDetailView
 urlpatterns = [
     path('careers/', CareersView.as_view(), name='careers'),
     path('careers/<int:pk>/', CareerDetailView.as_view(), name='career_detail'),
-    # Redirecionar para a versão com a barra
-    path('careers/<int:pk>', RedirectView.as_view(pattern_name='career_detail', permanent=True)),
 ]
 
 urlpatterns += staticfiles_urlpatterns()
