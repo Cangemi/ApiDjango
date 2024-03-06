@@ -17,6 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
+from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 from careers.views import CareersView, CareerDetailView
 
@@ -24,3 +25,5 @@ urlpatterns = [
     path('careers/', CareersView.as_view(), name='careers'),
     path('careers/<int:pk>/', CareerDetailView.as_view(), name='career_detail'),
 ]
+
+urlpatterns += staticfiles_urlpatterns()
